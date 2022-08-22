@@ -1,0 +1,883 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Assignment 3},
+  pdfauthor={Temi Ajulo},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Assignment 3}
+\author{Temi Ajulo}
+\date{11/14/2021}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  This question should be answered using the Weekly data set, which is
+  part of the ISLR package. This data is similar in nature to the
+  Smarket data from this chapter's lab, except that it contains 1, 089
+  weekly returns for 21 years, from the beginning of 1990 to the end of
+  2010
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ISLR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ISLR' was built under R version 4.1.1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{require}\NormalTok{(MASS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: MASS
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{require}\NormalTok{(class)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: class
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Produce some numerical and graphical summaries of the Weekly data. Do
+  there appear to be any patterns?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(Weekly)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Year           Lag1               Lag2               Lag3         
+##  Min.   :1990   Min.   :-18.1950   Min.   :-18.1950   Min.   :-18.1950  
+##  1st Qu.:1995   1st Qu.: -1.1540   1st Qu.: -1.1540   1st Qu.: -1.1580  
+##  Median :2000   Median :  0.2410   Median :  0.2410   Median :  0.2410  
+##  Mean   :2000   Mean   :  0.1506   Mean   :  0.1511   Mean   :  0.1472  
+##  3rd Qu.:2005   3rd Qu.:  1.4050   3rd Qu.:  1.4090   3rd Qu.:  1.4090  
+##  Max.   :2010   Max.   : 12.0260   Max.   : 12.0260   Max.   : 12.0260  
+##       Lag4               Lag5              Volume            Today         
+##  Min.   :-18.1950   Min.   :-18.1950   Min.   :0.08747   Min.   :-18.1950  
+##  1st Qu.: -1.1580   1st Qu.: -1.1660   1st Qu.:0.33202   1st Qu.: -1.1540  
+##  Median :  0.2380   Median :  0.2340   Median :1.00268   Median :  0.2410  
+##  Mean   :  0.1458   Mean   :  0.1399   Mean   :1.57462   Mean   :  0.1499  
+##  3rd Qu.:  1.4090   3rd Qu.:  1.4050   3rd Qu.:2.05373   3rd Qu.:  1.4050  
+##  Max.   : 12.0260   Max.   : 12.0260   Max.   :9.32821   Max.   : 12.0260  
+##  Direction 
+##  Down:484  
+##  Up  :605  
+##            
+##            
+##            
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(Today}\SpecialCharTok{\textasciitilde{}}\NormalTok{Lag1, }\AttributeTok{col=}\StringTok{"darkred"}\NormalTok{, }\AttributeTok{data=}\NormalTok{Weekly)}
+\NormalTok{simplelm }\OtherTok{=} \FunctionTok{lm}\NormalTok{(Today}\SpecialCharTok{\textasciitilde{}}\NormalTok{Lag1, }\AttributeTok{data=}\NormalTok{Weekly)}
+\FunctionTok{abline}\NormalTok{(simplelm, }\AttributeTok{lwd=} \DecValTok{3}\NormalTok{, }\AttributeTok{col=} \StringTok{"darkblue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Predictive-Modeling-Assignment-3_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pairs}\NormalTok{(Weekly)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Predictive-Modeling-Assignment-3_files/figure-latex/unnamed-chunk-2-2.pdf}
+(b) Use the full data set to perform a logistic regression with
+Direction as the response and the five lag variables plus Volume as
+predictors. Use the summary function to print the results. Do any of the
+predictors appear to be statistically significant? If so,which ones?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{logmod }\OtherTok{=} \FunctionTok{glm}\NormalTok{(Direction}\SpecialCharTok{\textasciitilde{}}\NormalTok{Lag1}\SpecialCharTok{+}\NormalTok{Lag2}\SpecialCharTok{+}\NormalTok{Lag3}\SpecialCharTok{+}\NormalTok{Lag4}\SpecialCharTok{+}\NormalTok{Lag5}\SpecialCharTok{+}\NormalTok{Volume,}\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{, }\AttributeTok{data=}\NormalTok{Weekly)}
+\FunctionTok{summary}\NormalTok{(logmod)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 + 
+##     Volume, family = "binomial", data = Weekly)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.6949  -1.2565   0.9913   1.0849   1.4579  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(>|z|)   
+## (Intercept)  0.26686    0.08593   3.106   0.0019 **
+## Lag1        -0.04127    0.02641  -1.563   0.1181   
+## Lag2         0.05844    0.02686   2.175   0.0296 * 
+## Lag3        -0.01606    0.02666  -0.602   0.5469   
+## Lag4        -0.02779    0.02646  -1.050   0.2937   
+## Lag5        -0.01447    0.02638  -0.549   0.5833   
+## Volume      -0.02274    0.03690  -0.616   0.5377   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1496.2  on 1088  degrees of freedom
+## Residual deviance: 1486.4  on 1082  degrees of freedom
+## AIC: 1500.4
+## 
+## Number of Fisher Scoring iterations: 4
+\end{verbatim}
+
+Ans:Out of all six predictors, only lag2 shows to be statistically
+significant to predict the direction. The estimated coefficient is
+0.058, which would mean that an increase in Lag2 represents an increase
+of e\^{}0.058=1,06 in the odds of direction going up.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Compute the confusion matrix and overall fraction of correct
+  predictions. Explain what the confusion matrix is telling you about
+  the types of mistakes made by logistic regression
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{probs }\OtherTok{=} \FunctionTok{predict}\NormalTok{(logmod, }\AttributeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{preds }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\StringTok{"Down"}\NormalTok{, }\DecValTok{1089}\NormalTok{)}
+\NormalTok{preds[probs }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{] }\OtherTok{=} \StringTok{"Up"}
+\FunctionTok{table}\NormalTok{(preds, Weekly}\SpecialCharTok{$}\NormalTok{Direction)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       
+## preds  Down  Up
+##   Down   54  48
+##   Up    430 557
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(probs, }\AttributeTok{col=} \FunctionTok{ifelse}\NormalTok{(Weekly}\SpecialCharTok{$}\NormalTok{Direction}\SpecialCharTok{==}\StringTok{"Down"}\NormalTok{, }\StringTok{"blue"}\NormalTok{,}\StringTok{"green"}\NormalTok{), }\AttributeTok{pch=}\DecValTok{16}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{lwd=} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Predictive-Modeling-Assignment-3_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(probs, }\AttributeTok{breaks=} \DecValTok{100}\NormalTok{, }\AttributeTok{col=} \StringTok{"darkorange"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v =} \FunctionTok{mean}\NormalTok{(probs), }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Predictive-Modeling-Assignment-3_files/figure-latex/unnamed-chunk-4-2.pdf}
+Ans:Based on the confusion matrix results, we can see that we are not
+conservative to consider the results as going up, and as such, we
+predict most of the cases to up go UP. Of course, this means that we
+have found a high percentage of true positives, but with an ample tread
+off, and that is that we also find 430 False Positives. We only consider
+a negative 54/484 of the true negatives, a low proportion. Ans:In the
+index plot we can see as most of our probabilities of being ``Up'' are
+over 0.5. So, if we set the threshold to consider one sample as going Up
+as 0.5,
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Now fit the logistic regression model using a training data period
+  from 1990 to 2008, with Lag2 as the only predictor. Compute the
+  confusion matrix and the overall fraction of correct predictions for
+  the held out data (that is, the data from 2009 and 2010).
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{training.data }\OtherTok{=}\NormalTok{ Weekly[Weekly}\SpecialCharTok{$}\NormalTok{Year}\SpecialCharTok{\textless{}}\DecValTok{2009}\NormalTok{,]}
+\NormalTok{test.data }\OtherTok{=}\NormalTok{ Weekly[Weekly}\SpecialCharTok{$}\NormalTok{Year}\SpecialCharTok{\textgreater{}}\DecValTok{2008}\NormalTok{,]}
+\NormalTok{simpglm }\OtherTok{=} \FunctionTok{glm}\NormalTok{(Direction}\SpecialCharTok{\textasciitilde{}}\NormalTok{Lag2, }\AttributeTok{data=}\NormalTok{ training.data, }\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{)}
+\FunctionTok{summary}\NormalTok{(simpglm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = Direction ~ Lag2, family = "binomial", data = training.data)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -1.536  -1.264   1.021   1.091   1.368  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(>|z|)   
+## (Intercept)  0.20326    0.06428   3.162  0.00157 **
+## Lag2         0.05810    0.02870   2.024  0.04298 * 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1354.7  on 984  degrees of freedom
+## Residual deviance: 1350.5  on 983  degrees of freedom
+## AIC: 1354.5
+## 
+## Number of Fisher Scoring iterations: 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{testprobs }\OtherTok{=} \FunctionTok{predict}\NormalTok{(simpglm, }\AttributeTok{type=}\StringTok{"response"}\NormalTok{, }\AttributeTok{newdata =}\NormalTok{ test.data)}
+\NormalTok{testdirs }\OtherTok{=}\NormalTok{ Weekly}\SpecialCharTok{$}\NormalTok{Direction[Weekly}\SpecialCharTok{$}\NormalTok{Year}\SpecialCharTok{\textgreater{}}\DecValTok{2008}\NormalTok{]}
+\FunctionTok{plot}\NormalTok{(testprobs, }\AttributeTok{col=} \FunctionTok{ifelse}\NormalTok{(Weekly}\SpecialCharTok{$}\NormalTok{Direction[Weekly}\SpecialCharTok{$}\NormalTok{Year}\SpecialCharTok{\textgreater{}}\DecValTok{2008}\NormalTok{]}\SpecialCharTok{==}\StringTok{"Down"}\NormalTok{, }\StringTok{"blue"}\NormalTok{,}\StringTok{"green"}\NormalTok{), }\AttributeTok{pch=}\DecValTok{16}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{lwd=} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Predictive-Modeling-Assignment-3_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{testpreds }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\StringTok{"Down"}\NormalTok{, }\DecValTok{104}\NormalTok{)}
+\NormalTok{testpreds[testprobs}\SpecialCharTok{\textgreater{}}\FloatTok{0.5}\NormalTok{] }\OtherTok{=} \StringTok{"Up"}
+\FunctionTok{mean}\NormalTok{(probs)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5555556
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(testpreds, testdirs)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          testdirs
+## testpreds Down Up
+##      Down    9  5
+##      Up     34 56
+\end{verbatim}
+
+Ans:The test error rate for the logistic regression is 37.5\%
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Repeat (d) using LDA
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lda.fit }\OtherTok{=} \FunctionTok{lda}\NormalTok{(Direction}\SpecialCharTok{\textasciitilde{}}\NormalTok{Lag2, }\AttributeTok{data=}\NormalTok{ training.data)}
+\NormalTok{lda.fit}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## lda(Direction ~ Lag2, data = training.data)
+## 
+## Prior probabilities of groups:
+##      Down        Up 
+## 0.4477157 0.5522843 
+## 
+## Group means:
+##             Lag2
+## Down -0.03568254
+## Up    0.26036581
+## 
+## Coefficients of linear discriminants:
+##            LD1
+## Lag2 0.4414162
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(lda.fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Predictive-Modeling-Assignment-3_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lda.pred }\OtherTok{=} \FunctionTok{predict}\NormalTok{(lda.fit, }\AttributeTok{newdata=}\NormalTok{test.data, }\AttributeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{lda.class }\OtherTok{=}\NormalTok{ lda.pred}\SpecialCharTok{$}\NormalTok{class}
+\FunctionTok{table}\NormalTok{(lda.class, test.data}\SpecialCharTok{$}\NormalTok{Direction)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          
+## lda.class Down Up
+##      Down    9  5
+##      Up     34 56
+\end{verbatim}
+
+Ans:test error is 37.7\%
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Repeat (d) using QDA
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{qda.fit }\OtherTok{=} \FunctionTok{qda}\NormalTok{(Direction}\SpecialCharTok{\textasciitilde{}}\NormalTok{Lag2, }\AttributeTok{data=}\NormalTok{ training.data)}
+\NormalTok{qda.fit}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## qda(Direction ~ Lag2, data = training.data)
+## 
+## Prior probabilities of groups:
+##      Down        Up 
+## 0.4477157 0.5522843 
+## 
+## Group means:
+##             Lag2
+## Down -0.03568254
+## Up    0.26036581
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{qda.pred }\OtherTok{=} \FunctionTok{predict}\NormalTok{(qda.fit, }\AttributeTok{newdata=}\NormalTok{test.data, }\AttributeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{qda.class }\OtherTok{=}\NormalTok{ qda.pred}\SpecialCharTok{$}\NormalTok{class}
+\FunctionTok{table}\NormalTok{(qda.class, test.data}\SpecialCharTok{$}\NormalTok{Direction)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          
+## qda.class Down Up
+##      Down    0  0
+##      Up     43 61
+\end{verbatim}
+
+Ans:test error is 41,35\%
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Repeat (d) using KNN with K = 1.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{train.X }\OtherTok{=} \FunctionTok{cbind}\NormalTok{(training.data}\SpecialCharTok{$}\NormalTok{Lag2)}
+\NormalTok{test.X }\OtherTok{=} \FunctionTok{cbind}\NormalTok{(test.data}\SpecialCharTok{$}\NormalTok{Lag2)}
+\NormalTok{train.Y }\OtherTok{=} \FunctionTok{cbind}\NormalTok{(training.data}\SpecialCharTok{$}\NormalTok{Direction)}
+\NormalTok{knn.pred }\OtherTok{=} \FunctionTok{knn}\NormalTok{(train.X, test.X, train.Y, }\AttributeTok{k=}\DecValTok{1}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(knn.pred, test.data}\SpecialCharTok{$}\NormalTok{Direction)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         
+## knn.pred Down Up
+##        1   21 30
+##        2   22 31
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Which of these methods appears to provide the best results on this
+  data?
+\end{enumerate}
+
+Ans:The methods that have the highest accuracy rates are the Logistic
+Regression and Linear Discriminant Analysis
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\tightlist
+\item
+  Experiment with different combinations of predictors, including
+  possible transformations and interactions, for each of the methods.
+  Report the variables, method, and associated confusion matrix that
+  appears to provide the best results on the held out data. Note that
+  you should also experiment with values forK in the KNN classifier.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{qda.fit2 }\OtherTok{=} \FunctionTok{qda}\NormalTok{(Direction}\SpecialCharTok{\textasciitilde{}}\NormalTok{Lag1 }\SpecialCharTok{+}\NormalTok{ Lag2 }\SpecialCharTok{+}\NormalTok{ Lag4, }\AttributeTok{data=}\NormalTok{ training.data)}
+\NormalTok{qda.fit2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## qda(Direction ~ Lag1 + Lag2 + Lag4, data = training.data)
+## 
+## Prior probabilities of groups:
+##      Down        Up 
+## 0.4477157 0.5522843 
+## 
+## Group means:
+##              Lag1        Lag2       Lag4
+## Down  0.289444444 -0.03568254 0.15925624
+## Up   -0.009213235  0.26036581 0.09220956
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{qda.pred2 }\OtherTok{=} \FunctionTok{predict}\NormalTok{(qda.fit2, }\AttributeTok{newdata=}\NormalTok{test.data, }\AttributeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{qda.class2 }\OtherTok{=}\NormalTok{ qda.pred2}\SpecialCharTok{$}\NormalTok{class}
+\FunctionTok{table}\NormalTok{(qda.class2, test.data}\SpecialCharTok{$}\NormalTok{Direction)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           
+## qda.class2 Down Up
+##       Down    9 20
+##       Up     34 41
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lda.fit2 }\OtherTok{=} \FunctionTok{lda}\NormalTok{(Direction}\SpecialCharTok{\textasciitilde{}}\NormalTok{Lag1 }\SpecialCharTok{+}\NormalTok{ Lag2 }\SpecialCharTok{+}\NormalTok{ Lag4, }\AttributeTok{data=}\NormalTok{ training.data)}
+\NormalTok{lda.fit2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## lda(Direction ~ Lag1 + Lag2 + Lag4, data = training.data)
+## 
+## Prior probabilities of groups:
+##      Down        Up 
+## 0.4477157 0.5522843 
+## 
+## Group means:
+##              Lag1        Lag2       Lag4
+## Down  0.289444444 -0.03568254 0.15925624
+## Up   -0.009213235  0.26036581 0.09220956
+## 
+## Coefficients of linear discriminants:
+##             LD1
+## Lag1 -0.2984478
+## Lag2  0.2960224
+## Lag4 -0.1113485
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lda.pred2 }\OtherTok{=} \FunctionTok{predict}\NormalTok{(lda.fit2, }\AttributeTok{newdata=}\NormalTok{test.data, }\AttributeTok{type=}\StringTok{"response"}\NormalTok{)}
+\NormalTok{lda.class2 }\OtherTok{=}\NormalTok{ lda.pred2}\SpecialCharTok{$}\NormalTok{class}
+\FunctionTok{table}\NormalTok{(lda.class2, test.data}\SpecialCharTok{$}\NormalTok{Direction)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           
+## lda.class2 Down Up
+##       Down    9  7
+##       Up     34 54
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{12}
+\tightlist
+\item
+  Using the Boston data set, fit classification models in order to
+  predict whether a given suburb has a crime rate above or below the
+  median.Explore logistic regression, LDA, and KNN models using various
+  subsets of the predictors. Describe your findings
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(Boston)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       crim                zn             indus            chas        
+##  Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000  
+##  1st Qu.: 0.08205   1st Qu.:  0.00   1st Qu.: 5.19   1st Qu.:0.00000  
+##  Median : 0.25651   Median :  0.00   Median : 9.69   Median :0.00000  
+##  Mean   : 3.61352   Mean   : 11.36   Mean   :11.14   Mean   :0.06917  
+##  3rd Qu.: 3.67708   3rd Qu.: 12.50   3rd Qu.:18.10   3rd Qu.:0.00000  
+##  Max.   :88.97620   Max.   :100.00   Max.   :27.74   Max.   :1.00000  
+##       nox               rm             age              dis        
+##  Min.   :0.3850   Min.   :3.561   Min.   :  2.90   Min.   : 1.130  
+##  1st Qu.:0.4490   1st Qu.:5.886   1st Qu.: 45.02   1st Qu.: 2.100  
+##  Median :0.5380   Median :6.208   Median : 77.50   Median : 3.207  
+##  Mean   :0.5547   Mean   :6.285   Mean   : 68.57   Mean   : 3.795  
+##  3rd Qu.:0.6240   3rd Qu.:6.623   3rd Qu.: 94.08   3rd Qu.: 5.188  
+##  Max.   :0.8710   Max.   :8.780   Max.   :100.00   Max.   :12.127  
+##       rad              tax           ptratio          black       
+##  Min.   : 1.000   Min.   :187.0   Min.   :12.60   Min.   :  0.32  
+##  1st Qu.: 4.000   1st Qu.:279.0   1st Qu.:17.40   1st Qu.:375.38  
+##  Median : 5.000   Median :330.0   Median :19.05   Median :391.44  
+##  Mean   : 9.549   Mean   :408.2   Mean   :18.46   Mean   :356.67  
+##  3rd Qu.:24.000   3rd Qu.:666.0   3rd Qu.:20.20   3rd Qu.:396.23  
+##  Max.   :24.000   Max.   :711.0   Max.   :22.00   Max.   :396.90  
+##      lstat            medv      
+##  Min.   : 1.73   Min.   : 5.00  
+##  1st Qu.: 6.95   1st Qu.:17.02  
+##  Median :11.36   Median :21.20  
+##  Mean   :12.65   Mean   :22.53  
+##  3rd Qu.:16.95   3rd Qu.:25.00  
+##  Max.   :37.97   Max.   :50.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attach}\NormalTok{(Boston)}
+\end{Highlighting}
+\end{Shaded}
+
+Creating binary crim variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{crime01 }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{length}\NormalTok{(crim))}
+\NormalTok{crime01[crim }\SpecialCharTok{\textgreater{}} \FunctionTok{median}\NormalTok{(crim)] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{Boston}\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(Boston,crime01)}
+\end{Highlighting}
+\end{Shaded}
+
+Splitting the dataset
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{train }\OtherTok{=} \DecValTok{1}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{dim}\NormalTok{(Boston)[}\DecValTok{1}\NormalTok{]}\SpecialCharTok{/}\DecValTok{2}\NormalTok{)}
+\NormalTok{test }\OtherTok{=}\NormalTok{ (}\FunctionTok{dim}\NormalTok{(Boston)[}\DecValTok{1}\NormalTok{]}\SpecialCharTok{/}\DecValTok{2} \SpecialCharTok{+} \DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\FunctionTok{dim}\NormalTok{(Boston)[}\DecValTok{1}\NormalTok{]}
+\NormalTok{Boston.train }\OtherTok{=}\NormalTok{ Boston[train, ]}
+\NormalTok{Boston.test }\OtherTok{=}\NormalTok{ Boston[test, ]}
+\NormalTok{crime01.test }\OtherTok{=}\NormalTok{ crime01[test]}
+\end{Highlighting}
+\end{Shaded}
+
+Determination of any associations to crime01
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pairs}\NormalTok{(Boston)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Predictive-Modeling-Assignment-3_files/figure-latex/unnamed-chunk-13-1.pdf}
+Ans:Looking at the binary correlation graphs, it looks like the
+variables nox, age, dis, and medv might correlate with our crime rate.
+Therefore, these may be good predictors for our crim\_lvl variable.We
+will first run a logistic regression model to determine which of our
+predictors are significant, then evaluate how effective our model
+predicts whether the crime rate will be above or below the median.
+
+Logistic Regression
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{Boston.fit }\OtherTok{\textless{}{-}}\FunctionTok{glm}\NormalTok{(crime01}\SpecialCharTok{\textasciitilde{}}\NormalTok{ indus}\SpecialCharTok{+}\NormalTok{nox}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{dis}\SpecialCharTok{+}\NormalTok{rad}\SpecialCharTok{+}\NormalTok{tax, }\AttributeTok{data=}\NormalTok{Boston.train,}\AttributeTok{family=}\NormalTok{binomial)}
+\NormalTok{Boston.probs }\OtherTok{=} \FunctionTok{predict}\NormalTok{(Boston.fit, Boston.test, }\AttributeTok{type =} \StringTok{"response"}\NormalTok{)}
+\NormalTok{Boston.pred }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{length}\NormalTok{(Boston.probs))}
+\NormalTok{Boston.pred[Boston.probs }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{] }\OtherTok{=} \DecValTok{1}
+\FunctionTok{table}\NormalTok{(Boston.pred, crime01.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            crime01.test
+## Boston.pred   0   1
+##           0  75   8
+##           1  15 155
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(Boston.pred }\SpecialCharTok{!=}\NormalTok{ crime01.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.09090909
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(Boston.fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = crime01 ~ indus + nox + age + dis + rad + tax, 
+##     family = binomial, data = Boston.train)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -1.97810  -0.21406  -0.03454   0.47107   3.04502  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(>|z|)    
+## (Intercept) -42.214032   7.617440  -5.542 2.99e-08 ***
+## indus        -0.213126   0.073236  -2.910  0.00361 ** 
+## nox          80.868029  16.066473   5.033 4.82e-07 ***
+## age           0.003397   0.012032   0.282  0.77772    
+## dis           0.307145   0.190502   1.612  0.10690    
+## rad           0.847236   0.183767   4.610 4.02e-06 ***
+## tax          -0.013760   0.004956  -2.777  0.00549 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 329.37  on 252  degrees of freedom
+## Residual deviance: 144.44  on 246  degrees of freedom
+## AIC: 158.44
+## 
+## Number of Fisher Scoring iterations: 8
+\end{verbatim}
+
+LDA
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Boston.ldafit }\OtherTok{\textless{}{-}}\FunctionTok{lda}\NormalTok{(crime01}\SpecialCharTok{\textasciitilde{}}\NormalTok{ indus}\SpecialCharTok{+}\NormalTok{nox}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{dis}\SpecialCharTok{+}\NormalTok{rad}\SpecialCharTok{+}\NormalTok{tax, }\AttributeTok{data=}\NormalTok{Boston.train,}\AttributeTok{family=}\NormalTok{binomial)}
+\NormalTok{Bostonlda.pred }\OtherTok{=} \FunctionTok{predict}\NormalTok{(Boston.ldafit, Boston.test)}
+\FunctionTok{table}\NormalTok{(Bostonlda.pred}\SpecialCharTok{$}\NormalTok{class, crime01.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    crime01.test
+##       0   1
+##   0  81  18
+##   1   9 145
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(Bostonlda.pred}\SpecialCharTok{$}\NormalTok{class }\SpecialCharTok{!=}\NormalTok{ crime01.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1067194
+\end{verbatim}
+
+K Nearest Neighbors when k =1
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{train.K}\OtherTok{=}\FunctionTok{cbind}\NormalTok{(indus,nox,age,dis,rad,tax)[train,]}
+\NormalTok{test.K}\OtherTok{=}\FunctionTok{cbind}\NormalTok{(indus,nox,age,dis,rad,tax)[test,]}
+\NormalTok{Bosknn.pred}\OtherTok{=}\FunctionTok{knn}\NormalTok{(train.K, test.K, crime01.test, }\AttributeTok{k=}\DecValTok{1}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(Bosknn.pred,crime01.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            crime01.test
+## Bosknn.pred   0   1
+##           0  31 155
+##           1  59   8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(Bosknn.pred }\SpecialCharTok{!=}\NormalTok{crime01.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8458498
+\end{verbatim}
+
+when K=100
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{train.K}\OtherTok{=}\FunctionTok{cbind}\NormalTok{(indus,nox,age,dis,rad,tax)[train,]}
+\NormalTok{test.K}\OtherTok{=}\FunctionTok{cbind}\NormalTok{(indus,nox,age,dis,rad,tax)[test,]}
+\NormalTok{Bosknn.pred}\OtherTok{=}\FunctionTok{knn}\NormalTok{(train.K, test.K, crime01.test, }\AttributeTok{k=}\DecValTok{100}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(Bosknn.pred,crime01.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            crime01.test
+## Bosknn.pred   0   1
+##           0  21   6
+##           1  69 157
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(Bosknn.pred }\SpecialCharTok{!=}\NormalTok{crime01.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2964427
+\end{verbatim}
+
+Conclusion The LDA model states that the nox, age, and media variables
+positively correlate with the probability of a high crime rate (above
+median). This variable has a negative correlation with the predicted
+probability. Using the LDA model, the error rate is slightly lower than
+that of the logistic model with 18.5\%. After considering the results of
+each classification method, logistic regression had the lowest trial
+error rate of 9.09\%. When revisiting the logistic regression model, the
+only statistically significant variables were: Indus, nox, rad, and tax.
+All modeling methods contain the same variables, so comparisons are most
+straightforward; these variables are graphically determined to have the
+best association with crime01. K nearest neighbors with k = 1 have the
+highest error rate, thus making the model ineffective in classification.
+It should also be noted, as the value of K increased, the error rate
+improved but was still not as low as logistic regression or LDA.
+
+\end{document}
